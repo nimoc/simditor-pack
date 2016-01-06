@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>simditor-pack</title>
+    <link rel="stylesheet" type="text/css" href="./simditor.css">
+</head>
+<body>
+<textarea name="content" id="editor">abc</textarea>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="simditor.js"></script>
+<script type="text/javascript">
+var editor = new Simditor({
+  textarea: $('#editor'),
+  pasteImageL: true,
+    upload: {
+        // 可通过修改这里改变 图片ajax上传地址
+        url: '/ajax/uploadify.php'
+    }
+});
+
+/*
+图片上传成功请返回
+
+
+{
+    "status": "success",
+    "src": "http://dummyimage.com/100/cad8ee/fff",
+    "id": "sdadad"
+}
+
+图片上传失败请返回
+
+{
+    "status": "error",
+    "msg": "上传失败错误原因"
+}
+*/
+</script>
+</body>
+</html>
