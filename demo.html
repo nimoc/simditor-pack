@@ -12,30 +12,58 @@
 <script type="text/javascript">
 var editor = new Simditor({
   textarea: $('#editor'),
+    toolbar: [
+      'title',
+      'bold',
+      'italic',
+      'underline',
+      'strikethrough',
+      'fontScale',
+      'color',
+      'ol'             ,
+      'ul'             ,
+      'blockquote',
+      'code'           ,
+      'table',
+      'link',
+      'image',
+      'hr'             ,
+      'indent',
+      'outdent',
+      'alignment',
+      'html'
+    ],
   pasteImageL: true,
     upload: {
         // 可通过修改这里改变 图片ajax上传地址
-        url: '/ajax/uploadify.php'
+        url: '/upload.php'
     }
 });
 
-/*
-图片上传成功请返回
-
-
-{
-    "status": "success",
-    "src": "http://dummyimage.com/100/cad8ee/fff",
-    "id": "sdadad"
+window.Simditor_Upload_AJAX_filter = function (res) {
+    // 例如当前项目与后端约定状态是用 status: success error 就需要做一次过滤转换
+    if (res.status === 'success') {
+        res.success = true
+        res.file_path = res.data.src
+    }
+    else {
+        res.success = false
+    }
+    return res
+    /*
+    后端返回的 JSON 必须转换为
+    {
+        success: true,
+        file_path: 'https://avatars1.githubusercontent.com/u/3949015?v=3&s=40'
+    }
+    {
+        success: false,
+        msg: "错误原因"
+    }
+    */
 }
 
-图片上传失败请返回
 
-{
-    "status": "error",
-    "msg": "上传失败错误原因"
-}
-*/
 </script>
 </body>
 </html>

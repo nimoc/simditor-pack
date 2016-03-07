@@ -744,3 +744,12 @@
   margin: 0 5px;
   vertical-align: middle;
 }
+
+
+.simditor.simditor-html .simditor-wrapper > textarea {
+  display: block !important;
+}
+.simditor.simditor-html .simditor-body,
+.simditor.simditor-html .simditor-placeholder {
+  display: none;
+}
