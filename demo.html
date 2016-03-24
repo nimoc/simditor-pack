@@ -6,6 +6,10 @@
     <link rel="stylesheet" type="text/css" href="./simditor.css">
 </head>
 <body>
+务必让前端同事在前台页面引入 <a href="./simditor.css">./s/lib/simditor-pack/simditor-body.css</a> <br>
+          并将后端渲染的HTML放在 &lt;div class="simditor"&gt;&lt;div class="simditor-body"&gt;这里是编辑器增加的内容&lt;/div&gt;&lt;/div&gt;
+          <br>
+          只有这样才可以让管理后台编辑的内容发布到前台后样式是一致的
 <textarea name="content" id="editor">abc</textarea>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="simditor.js"></script>
